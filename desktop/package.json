@@ -1,0 +1,36 @@
+{
+  "name": "tokmagotchi-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tokmagotchi desktop companion — log watcher, hook server, device bridge.",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "package": "electron-vite build && electron-builder"
+  },
+  "dependencies": {
+    "bonjour-service": "^1.2.1",
+    "chokidar": "^3.6.0",
+    "express": "^4.19.2"
+  },
+  "optionalDependencies": {
+    "@abandonware/noble": "^1.9.2-25"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1",
+    "electron-vite": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  }
+}

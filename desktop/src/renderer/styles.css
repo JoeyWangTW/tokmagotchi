@@ -1,0 +1,58 @@
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0e1014;
+  color: #e8e8ee;
+}
+
+.app { display: grid; grid-template-rows: auto 1fr; height: 100%; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #22242c;
+  background: #15171d;
+}
+.topbar .brand { font-weight: 700; letter-spacing: 0.5px; }
+.status { font-size: 13px; color: #8f94a3; }
+.status.connected { color: #7ee787; }
+.status.disconnected { color: #e96c6c; }
+
+.main { padding: 20px; overflow: auto; }
+
+.card {
+  background: #15171d;
+  border: 1px solid #22242c;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.card h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #8f94a3; margin: 0 0 12px; }
+
+.meter { display: grid; grid-template-columns: 100px 1fr 80px; align-items: center; gap: 12px; margin-bottom: 8px; }
+.meter .bar { background: #22242c; height: 12px; border-radius: 6px; overflow: hidden; }
+.meter .fill { height: 100%; background: linear-gradient(90deg, #7ee787, #4cb8ff); transition: width .3s; }
+.meter .fg { color: #8f94a3; font-size: 12px; text-align: right; }
+
+.activity { list-style: none; margin: 0; padding: 0; }
+.activity li { padding: 8px 0; border-bottom: 1px solid #22242c; font-size: 13px; color: #c9ccd6; }
+.activity li:last-child { border-bottom: 0; }
+.activity time { color: #6a6f7d; margin-right: 8px; font-variant-numeric: tabular-nums; }
+
+.btn {
+  background: #2a2e3a; border: 1px solid #3a3f4f; color: #e8e8ee;
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; cursor: pointer;
+}
+.btn:hover { background: #343847; }
+.btn.primary { background: #3a7cff; border-color: #3a7cff; }
+.btn.primary:hover { background: #5b93ff; }
+
+.pair { display: grid; place-items: center; height: 100%; }
+.pair .panel { max-width: 420px; width: 100%; }
+.pair label { display: block; font-size: 12px; color: #8f94a3; margin: 12px 0 4px; }
+.pair input { width: 100%; background: #0e1014; border: 1px solid #22242c; color: #e8e8ee; padding: 8px 10px; border-radius: 6px; font-size: 14px; }
+
+.tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+.tabs button { background: transparent; border: 0; color: #8f94a3; padding: 8px 12px; cursor: pointer; border-bottom: 2px solid transparent; }
+.tabs button.active { color: #e8e8ee; border-color: #3a7cff; }

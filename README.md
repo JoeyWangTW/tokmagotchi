@@ -7,12 +7,22 @@ A physical developer companion that turns your coding activity into a tamagotchi
 ```
 tokmagotchi/
 ├── firmware/          ESP-IDF v5.1 firmware for the SenseCAP Watcher (ESP32-S3)
-├── desktop/           (future) Electron app for log parsing + device bridge
-├── hook/              (future) tokmagotchi-hook binary for Claude Code PreToolUse
+├── desktop/           Electron + React companion app (log watcher, hook server, device bridge)
+├── hook/              tokmagotchi-hook Node script (Claude Code PreToolUse)
 ├── assets/            (future) pixel-art sprites
 └── docs/
     └── SPEC.md        full project specification
 ```
+
+## Desktop — quick start
+
+```bash
+cd desktop
+npm install
+npm run dev
+```
+
+See [`desktop/README.md`](desktop/README.md) for details.
 
 ## Firmware — quick start
 
