@@ -1,0 +1,33 @@
+idf_component_register(
+    SRCS
+        "app_main.cpp"
+        "pet_state.cpp"
+        "display.cpp"
+        "http_server.cpp"
+        "ble_provision.cpp"
+        "audio_capture.cpp"
+        "camera_capture.cpp"
+        "mdns_service.cpp"
+        "time_sync.cpp"
+        "input.cpp"
+        "sd_storage.cpp"
+    INCLUDE_DIRS "."
+    REQUIRES
+        nvs_flash
+        spiffs
+        esp_wifi
+        esp_http_server
+        esp_http_client
+        esp_event
+        esp_netif
+        esp_timer
+        bt
+        mdns
+        json
+        driver
+        fatfs
+        sdmmc
+        lwip
+        vfs
+        wifi_provisioning
+)
