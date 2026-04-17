@@ -31,6 +31,16 @@ constexpr int WAKE_HOUR  = 7;
 // Reaction states last this long before state machine re-evaluates.
 constexpr int REACTION_DURATION_MS = 4000;
 
+// Display geometry — the Watcher's panel is a 412×412 square where only the
+// inscribed circle is visible. All LVGL widget placement must stay inside
+// this circle, so we work in polar-safe offsets from the centre rather than
+// pinning to corners.
+constexpr int DISPLAY_SIZE_PX   = 412;
+constexpr int DISPLAY_RADIUS_PX = 206;
+constexpr int DISPLAY_SAFE_RADIUS_PX = 196;  // leave 10px for bezel / AA
+constexpr int DISPLAY_CENTER_X  = DISPLAY_SIZE_PX / 2;
+constexpr int DISPLAY_CENTER_Y  = DISPLAY_SIZE_PX / 2;
+
 // Persisted state file on SPIFFS.
 constexpr const char *STATE_FILE_PATH = "/spiffs/pet_state.bin";
 constexpr const char *STATE_MOUNT_POINT = "/spiffs";

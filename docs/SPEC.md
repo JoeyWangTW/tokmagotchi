@@ -83,6 +83,31 @@ GET  /media/<name> raw file bytes
 
 Persisted to SPIFFS in `/spiffs/pet_state.bin` (binary `PersistedState` struct, magic `TOK1`, version 1). Contains pet name, hunger values, last-feed timestamps, and first-boot flag. Recomputed on every save; hunger decay is applied on every `tick()` based on elapsed wall time.
 
+## Display geometry
+
+The Watcher ships a 1.45" **round** touchscreen. LVGL addresses it as a
+412×412 surface, but only the inscribed circle (radius ≈ 200 px) is
+physically visible — the bezel masks the four corners. All widgets in
+`firmware/main/display.cpp` are placed with `LV_ALIGN_CENTER` + polar-safe
+offsets so nothing falls outside the circle. At vertical offset `y` from the
+centre the usable chord width is `2·√(R² − y²)`; widget widths were chosen
+against that bound.
+
+Main screen layout (centre-relative):
+
+```
+y = -140   pet name
+y =  -90   big emoji
+y =   10   sprite (~180 px square)
+y =  120   tokens meter bar  (180 px wide)
+y =  144   voice meter bar
+y =  168   vision meter bar
+```
+
+Permission screen replaces the main screen entirely while an approval is
+pending. Title at `y=-140`, body wrapped at 240 px, `DENY` / `ALLOW`
+buttons side by side at `y=+110, x=±60`.
+
 ## Offline behaviour
 
 - Pet state machine runs regardless of network.
